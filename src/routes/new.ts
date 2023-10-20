@@ -17,12 +17,19 @@ router.post('/api/products', [
     body('description').optional(),
 ], validateRequest, async (req: Request, res: Response) => {
     const { title, price, description } = req.body;
-    let productRepo = await db.getRepository(Product);
-    const product = await productRepo.create({
-        title,
-        price,
-        description
-    })
+    try {
+        let product = await db.getRepository(Product).create({
+            title,
+            price,
+            description
+        });  
+       const result =  await db.getRepository(Product).save(product)
+        res.status(201).send(result)
+    } catch (error) {
+        console.log(error);
+    }
+
+    // const product = await productRepo
     // await product.save();
     // await new TicketCreatedPublisher(natsWrapper.client).publish({
     //     id: product.id,
@@ -30,7 +37,7 @@ router.post('/api/products', [
     //     price: product.price,
     //     userId: product.userId
     // })
-    res.status(201).send(product)
+
 })
 
 
