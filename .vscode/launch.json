@@ -9,7 +9,7 @@
             "request": "launch",
             "runtimeArgs": [
                 "run",
-                "start:dev"
+                "start"
             ],
             "runtimeExecutable": "npm",
             "skipFiles": [
@@ -17,30 +17,5 @@
             ],
             "type": "node"
         },
-
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Build Project",
-            "program": "${workspaceFolder}/src/index.ts",
-            "preLaunchTask": "npm: build",
-            "sourceMaps": true,
-            "smartStep": true,
-            "internalConsoleOptions": "openOnSessionStart",
-            "outFiles": [
-                "${workspaceFolder}/out/**/*.js"
-            ]
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "1111Launch Program",
-            "program": "${workspaceFolder}/src/index.ts",
-            "preLaunchTask": "tsc: build - tsconfig.json",
-            "outFiles": ["${workspaceFolder}/out/**/*.js"]
-        },
-        {
-
-        }
     ]
 }

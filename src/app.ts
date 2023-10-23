@@ -10,7 +10,7 @@ import { showProductRouter } from './routes/show';
 import { updateProductRouter } from './routes/update';
 
 import { errorHandler, NotFoundError } from "@myasticketing/common";
-config()
+
 const app = express();
 app.use(json());
 

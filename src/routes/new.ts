@@ -3,7 +3,7 @@ import express, { Request, Response } from 'express';
 import { validateRequest } from '@myasticketing/common'
 import { TicketCreatedPublisher } from '../events/ticket-created-publisher';
 import { Product } from '../entity/product.entity';
-import { db } from '../app-data-source';
+import { db } from '../config/db';
 
 const { body } = require('express-validator');
 
